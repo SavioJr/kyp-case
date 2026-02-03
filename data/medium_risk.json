@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Serviços Horizonte ME",
+    "cnpj": "23.456.789/0001-10",
+    "sector": "servicos",
+    "region": "MG"
+  },
+  "financials": {
+    "period_months": 12,
+    "revenue": 1200000,
+    "cogs": 760000,
+    "operating_expenses": 340000,
+    "assets_current": 360000,
+    "assets_total": 900000,
+    "liabilities_current": 310000,
+    "liabilities_total": 620000,
+    "equity": 280000
+  },
+  "receivable": {
+    "type": "duplicata_escritural",
+    "amount": 65000,
+    "due_days": 60
+  },
+  "behavioral": {
+    "payment_history": "regular",
+    "delinquency_events_last_12m": 1
+  }
+}

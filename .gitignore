@@ -1,0 +1,12 @@
+# secrets
+.env
+
+# generated outputs
+outputs/
+
+# python cache
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store

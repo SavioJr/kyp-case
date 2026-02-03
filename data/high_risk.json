@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Distribuidora Vale Sul LTDA",
+    "cnpj": "34.567.890/0001-55",
+    "sector": "distribuicao",
+    "region": "BA"
+  },
+  "financials": {
+    "period_months": 12,
+    "revenue": 950000,
+    "cogs": 820000,
+    "operating_expenses": 170000,
+    "assets_current": 210000,
+    "assets_total": 750000,
+    "liabilities_current": 260000,
+    "liabilities_total": 720000,
+    "equity": 30000
+  },
+  "receivable": {
+    "type": "duplicata_escritural",
+    "amount": 120000,
+    "due_days": 90
+  },
+  "behavioral": {
+    "payment_history": "irregular",
+    "delinquency_events_last_12m": 4
+  }
+}

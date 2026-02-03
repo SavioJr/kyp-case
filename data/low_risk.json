@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Comercial Aurora LTDA",
+    "cnpj": "12.345.678/0001-90",
+    "sector": "varejo",
+    "region": "SP"
+  },
+  "financials": {
+    "period_months": 12,
+    "revenue": 2400000,
+    "cogs": 1500000,
+    "operating_expenses": 520000,
+    "assets_current": 820000,
+    "assets_total": 1700000,
+    "liabilities_current": 380000,
+    "liabilities_total": 720000,
+    "equity": 980000
+  },
+  "receivable": {
+    "type": "duplicata_escritural",
+    "amount": 85000,
+    "due_days": 35
+  },
+  "behavioral": {
+    "payment_history": "regular",
+    "delinquency_events_last_12m": 0
+  }
+}

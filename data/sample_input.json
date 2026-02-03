@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Empresa XPTO LTDA",
+    "cnpj": "12.345.678/0001-90",
+    "sector": "comercio",
+    "region": "SP"
+  },
+  "financials": {
+    "period_months": 12,
+    "revenue": 1200000,
+    "cogs": 780000,
+    "operating_expenses": 260000,
+    "assets_current": 420000,
+    "assets_total": 900000,
+    "liabilities_current": 280000,
+    "liabilities_total": 520000,
+    "equity": 380000
+  },
+  "receivable": {
+    "type": "duplicata_escritural",
+    "amount": 85000,
+    "due_days": 45
+  },
+  "behavioral": {
+    "payment_history": "regular",
+    "delinquency_events_last_12m": 1
+  }
+}
