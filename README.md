@@ -1,111 +1,184 @@
-# Automação da Carpintaria Intelectual na Análise de Duplicatas Escriturais
+# 🧠 Automação da Carpintaria Intelectual na Análise de Duplicatas Escriturais
 
-## Contexto
-
-Uma duplicata é um título de crédito que representa um **direito de recebimento futuro** originado de uma venda a prazo. Tradicionalmente, esse processo envolvia documentos físicos e validações manuais, o que limitava escala e aumentava risco operacional.
-
-Com a introdução da **duplicata escritural**, esse direito passa a existir de forma **digital, padronizada e rastreável**, tornando-se um ativo financeiro estruturado e negociável. Esse avanço aumenta significativamente a eficiência do mercado, mas também gera um novo desafio: **um crescimento acelerado no volume de operações** que precisam ser analisadas.
-
-Nesse novo cenário, processos manuais não escalam.
+Este repositório apresenta um **MVP (Minimum Viable Product)** que automatiza tarefas repetitivas do trabalho de um **analista de crédito**, no contexto de **duplicatas escriturais**.  
+A solução demonstra como **workflows automatizados e IA generativa** podem apoiar decisões humanas, reduzindo esforço manual, padronizando análises e aumentando a escala operacional.
 
 ---
 
-## O Problema
+## 📌 O que é uma Duplicata Escritural
 
-Cada duplicata escritural gera um conjunto de dados que precisa ser:
-- validado,
-- analisado,
-- interpretado,
-- documentado.
+Uma **duplicata** é um título de crédito que representa um **direito de recebimento futuro**, originado de uma venda a prazo. Ela formaliza a obrigação de pagamento do comprador e pode ser utilizada para controle financeiro, cobrança ou antecipação de crédito.
 
-Hoje, grande parte desse trabalho é feita manualmente por analistas de crédito, por meio de tarefas repetitivas como:
-- cálculo de indicadores financeiros,
-- análise preliminar de risco,
-- preparação de relatórios padronizados.
+Com a evolução regulatória e tecnológica, surge a **duplicata escritural**, que substitui o documento físico por um **registro eletrônico padronizado**, mantido em sistemas autorizados. Esse modelo elimina papel, reduz fraudes e aumenta a rastreabilidade das operações.
 
-Esse conjunto de tarefas repetitivas e estruturáveis é o que o case chama de **“carpintaria intelectual”**.  
-Com o aumento expressivo no volume de duplicatas, manter esse modelo manual cria gargalos operacionais, atrasos e maior probabilidade de erro.
+Na prática, a duplicata escritural:
+- formaliza o recebível de forma digital;
+- facilita o controle de pagamentos e inadimplência;
+- aumenta a segurança jurídica das operações;
+- permite maior escala na negociação de recebíveis.
 
----
-
-## Objetivo da Solução
-
-O objetivo deste projeto é **automatizar a carpintaria intelectual**, ou seja, as etapas iniciais, repetitivas e estruturáveis do trabalho do analista, preservando o julgamento humano apenas para os casos que realmente exigem decisão.
+Esse modelo é amplamente discutido no contexto de **controle de pagamentos e gestão de recebíveis**, conforme descrito pela Serasa Experian:  
+https://www.serasaexperian.com.br/conteudos/controle-de-pagamentos-de-clientes/
 
 ---
 
-## Escopo
+## 🔍 O Problema
 
-Foram selecionadas três tarefas típicas do trabalho de um analista de crédito, ideais para automação:
+A digitalização das duplicatas transforma o recebível em um **ativo financeiro estruturado**, mas também gera um novo desafio operacional: **o aumento massivo no volume de títulos a serem analisados**.
 
-1. **Geração de indicadores financeiros**
-2. **Análise preliminar de risco de crédito**
-3. **Preparação de relatórios de risco**
+Cada duplicata exige que um analista:
+- valide dados,
+- calcule indicadores financeiros,
+- interprete risco de crédito,
+- produza documentação padronizada.
+
+Hoje, grande parte desse trabalho ainda é feita **manualmente**, mesmo sendo altamente repetitiva e estruturável.  
+Esse conjunto de tarefas cognitivas operacionais é o que este projeto chama de **“carpintaria intelectual”**.
+
+Com o crescimento do mercado de duplicatas escriturais, manter esse processo manual:
+- cria gargalos,
+- aumenta risco de erro,
+- limita escala.
+
+---
+
+## 🎯 Objetivo da Solução
+
+O objetivo deste projeto é **automatizar a carpintaria intelectual** — as etapas iniciais, repetitivas e estruturáveis do trabalho do analista de crédito — mantendo o **julgamento humano** apenas onde ele realmente agrega valor.
+
+A solução:
+- acelera a análise preliminar;
+- padroniza avaliações;
+- gera relatórios consistentes;
+- preserva a decisão final para o analista.
+
+---
+
+## 📌 Alinhamento com Atividades do Analista de Crédito (O*NET)
+
+O projeto foi desenhado com base nas atividades descritas no **O*NET** para o cargo de **Credit Analyst (13-2041.00)**:  
+https://www.onetonline.org/link/details/13-2041.00
+
+Foram selecionadas tarefas altamente estruturáveis e ideais para automação:
+
+| O*NET Task | Descrição resumida | Implementação no projeto |
+|-----------|--------------------|--------------------------|
+| Task 3 | Generate financial ratios to evaluate customers' financial status | `ratios.py` |
+| Task 1 | Analyze credit data to determine degree of risk | `llm.py` |
+| Task 4 | Prepare reports that include the degree of risk involved | `report.py` |
 
 Essas tarefas formam um pipeline lógico:
-**dados → interpretação → comunicação**.
+**dados → interpretação → comunicação**, refletindo o fluxo real de trabalho do analista.
 
 ---
 
-## Arquitetura da Solução (MVP)
-
-A solução é implementada como um workflow automatizado.
+## 🧩 Arquitetura da Solução (MVP)
 
 ### Entrada
-- JSON mockado representando dados financeiros básicos de uma empresa relacionada a uma duplicata.
+- Arquivo JSON mockado contendo:
+  - dados da empresa,
+  - informações financeiras básicas,
+  - dados da duplicata,
+  - sinais comportamentais.
 
 ### Etapas do Workflow
+1. **Validação de dados**
+   - verificação de campos obrigatórios;
+   - padronização de formatos.
 
-1. **Validação e normalização de dados**
-   - Verificação de campos obrigatórios
-   - Padronização de formatos
-   - Registro de inconsistências
-
-2. **Cálculo automático de indicadores financeiros (Python)**
-   - Margem
-   - Liquidez
-   - Endividamento
-   - Alavancagem
+2. **Cálculo automático de indicadores financeiros**
+   - margens,
+   - liquidez,
+   - endividamento,
+   - alavancagem.
 
 3. **Interpretação preliminar de risco com IA generativa**
-   - Classificação de risco (baixo / médio / alto)
-   - Explicação textual baseada nos indicadores
+   - classificação de risco (baixo / médio / alto);
+   - justificativa textual baseada nos indicadores.
 
 4. **Geração automática de relatório**
-   - Sumário executivo
-   - Grau de risco
-   - Principais pontos de atenção
-   - Observações para revisão humana
+   - sumário executivo;
+   - grau de risco;
+   - pontos de atenção;
+   - observações para revisão humana.
 
 ### Saída
-- Relatório estruturado
-- Classificação preliminar de risco
-- Dados auditáveis para análise posterior
+- Relatório estruturado (`.md`);
+- contexto e indicadores auditáveis (`.json`).
 
 ---
 
-## Ganho de Eficiência
+## 📁 Estrutura do Projeto
+init.py
+main.py        # Orquestra o workflow completo
+schemas.py     # Contratos de dados (validação do input)
+ratios.py      # Cálculo determinístico de indicadores financeiros
+llm.py         # Interpretação preliminar de risco com IA generativa
+report.py      # Geração do relatório em Markdown
+utils.py       # Funções utilitárias de I/O
+data/
+sample_input.json
+low_risk.json
+medium_risk.json
+high_risk.json
+outputs/         # Relatórios gerados (não versionado)
+.env.example     # Exemplo de variáveis de ambiente
+requirements.txt
+README.md
+
+---
+## ▶️ Como Executar o Projeto
+
+### Pré-requisitos
+- Python 3.11+
+
+### 1. Instalar Dependências
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Configurar Variáveis de Ambiente
+```bash
+cp .env.example .env
+# edite o arquivo .env e insira sua chave de API
+```
+
+### 3. Executar Pipeline
+```bash
+python -m src.main --input data/sample_input.json --out outputs
+```
+
+- Edite o input para apontar para seu arquivo `.json`
+- Os relatórios são gerados no diretório `outputs/` em formato Markdown (`.md`)
+
+---
+
+## 🚀 Ganho de Eficiência
 
 A automação permite:
 - reduzir o tempo de análise inicial de horas para minutos;
-- padronizar avaliações;
+- padronizar avaliações preliminares;
 - reduzir erros operacionais;
-- escalar a operação sem aumento proporcional de equipe.
+- escalar a operação sem crescimento proporcional de equipe.
 
-O analista passa a atuar apenas em exceções e decisões finais.
+O analista passa a focar em exceções e decisões de maior impacto.
 
 ---
 
-## Limitações e Próximos Passos
+## ⚠️ Limitações e Próximos Passos
 
-- A solução não substitui o julgamento humano.
-- Próximos passos incluem:
+O sistema **não substitui o julgamento humano**.
+
+- Não há integração com bases externas neste MVP.
+- Próximos passos possíveis:
   - human-in-the-loop;
-  - aprendizado com feedback dos analistas;
-  - integração com registradoras e bases externas.
+  - feedback contínuo dos analistas;
+  - integração com registradoras e fontes externas.
 
 ---
 
-## Conclusão
+## 🏁 Conclusão
 
-A duplicata escritural transforma um direito de recebimento em um ativo financeiro digital. Para que esse novo modelo escale com segurança, é fundamental automatizar as tarefas repetitivas que antecedem a decisão humana. Este MVP demonstra como workflows e IA generativa podem cumprir esse papel de forma pragmática e responsável.
+A duplicata escritural transforma um direito de recebimento em um ativo financeiro digital, escalável e rastreável. Para que esse modelo funcione de forma segura em grande escala, é fundamental automatizar as tarefas repetitivas que antecedem a decisão humana.
+
+Este projeto demonstra como automação e IA generativa podem cumprir esse papel de forma pragmática, responsável e alinhada à rotina real de um analista de crédito.
