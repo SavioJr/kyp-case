@@ -109,22 +109,23 @@ Essas tarefas formam um pipeline lógico:
 ---
 
 ## 📁 Estrutura do Projeto
-init.py
-main.py        # Orquestra o workflow completo
-schemas.py     # Contratos de dados (validação do input)
-ratios.py      # Cálculo determinístico de indicadores financeiros
-llm.py         # Interpretação preliminar de risco com IA generativa
-report.py      # Geração do relatório em Markdown
-utils.py       # Funções utilitárias de I/O
-data/
-sample_input.json
-low_risk.json
-medium_risk.json
-high_risk.json
-outputs/         # Relatórios gerados (não versionado)
-.env.example     # Exemplo de variáveis de ambiente
-requirements.txt
-README.md
++ src/
+  + init.py
+  + main.py        # Orquestra o workflow completo
+  + schemas.py     # Contratos de dados (validação do input)
+  + ratios.py      # Cálculo determinístico de indicadores financeiros
+  + llm.py         # Interpretação preliminar de risco com IA generativa
+  + report.py      # Geração do relatório em Markdown
+  + utils.py       # Funções utilitárias de I/O
++ data/
+  + sample_input.json
+  + low_risk.json
+  + medium_risk.json
+  + high_risk.json
++ outputs/         # Relatórios gerados (não versionado)
++ .env.example     # Exemplo de variáveis de ambiente
++ requirements.txt
++ README.md
 
 ---
 ## ▶️ Como Executar o Projeto
@@ -174,6 +175,26 @@ O sistema **não substitui o julgamento humano**.
   - human-in-the-loop;
   - feedback contínuo dos analistas;
   - integração com registradoras e fontes externas.
+
+# 🤖 IA Generativa - API
+
+Neste MVP, a **Groq API** foi utilizada como provider de IA generativa. No entanto, a arquitetura do projeto **não é acoplada a um provider específico**.
+
+- A camada de IA está isolada em `llm.py`
+- Qualquer provider compatível (ex: OpenAI, Azure OpenAI, Anthropic, etc.) pode ser integrado
+- A troca de provider exige apenas ajustes de configuração e chamada de API
+
+O objetivo do projeto é demonstrar o **workflow de automação**, e não avaliar ou comparar modelos específicos.
+
+# 🧪 Dados Utilizados
+
+Os dados utilizados neste projeto são **mockados / sintéticos**, criados exclusivamente para demonstrar o funcionamento do workflow.
+
+- Nenhum dado real de empresa ou operação financeira é utilizado
+- Os cenários (`low_risk`, `medium_risk`, `high_risk`) representam **casos hipotéticos**
+- Os valores não devem ser interpretados como análises reais de crédito
+
+O foco do MVP é validar a **ideia, arquitetura e automação das tarefas**, e não produzir avaliações de risco reais em ambiente produtivo.
 
 ---
 
