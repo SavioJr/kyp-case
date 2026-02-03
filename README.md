@@ -109,23 +109,29 @@ Essas tarefas formam um pipeline lógico:
 ---
 
 ## 📁 Estrutura do Projeto
-+ src/
-  + init.py
-  + main.py        # Orquestra o workflow completo
-  + schemas.py     # Contratos de dados (validação do input)
-  + ratios.py      # Cálculo determinístico de indicadores financeiros
-  + llm.py         # Interpretação preliminar de risco com IA generativa
-  + report.py      # Geração do relatório em Markdown
-  + utils.py       # Funções utilitárias de I/O
-+ data/
-  + sample_input.json
-  + low_risk.json
-  + medium_risk.json
-  + high_risk.json
-+ outputs/         # Relatórios gerados (não versionado)
-+ .env.example     # Exemplo de variáveis de ambiente
-+ requirements.txt
-+ README.md
+
+```text
+src/
+├── __init__.py        # Torna o diretório src um pacote Python
+├── main.py            # Orquestra o workflow completo
+├── schemas.py         # Contratos de dados (validação do input)
+├── ratios.py          # Cálculo determinístico de indicadores financeiros
+├── llm.py             # Interpretação preliminar de risco com IA generativa
+├── report.py          # Geração do relatório final em Markdown
+└── utils.py           # Funções utilitárias de I/O
+
+data/
+├── sample_input.json  # Exemplo de entrada
+├── low_risk.json      # Cenário mockado: baixo risco
+├── medium_risk.json   # Cenário mockado: médio risco
+└── high_risk.json     # Cenário mockado: alto risco
+
+outputs/               # Relatórios gerados (não versionado)
+
+.env.example           # Exemplo de variáveis de ambiente
+requirements.txt       # Dependências do projeto
+README.md
+```
 
 ---
 ## ▶️ Como Executar o Projeto
