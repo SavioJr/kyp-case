@@ -12,7 +12,7 @@ Fluxo:
 
 import argparse
 from datetime import datetime
-from anyio import Path
+from pathlib import Path
 
 from .schemas import InputPayload          # contrato de dados
 from .ratios import compute_ratios         # Task 3

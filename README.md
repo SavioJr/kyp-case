@@ -134,6 +134,12 @@ README.md
 ### Pré-requisitos
 - Python 3.11+
 
+### 0. Clonar o Repositório
+```bash
+git clone https://github.com/SavioJr/kyp-case.git
+cd kyp-case
+```
+
 ### 1. Instalar Dependências
 ```bash
 pip install -r requirements.txt

@@ -6,8 +6,7 @@ Camada de IA Generativa (provider-agnostic, aqui usando Groq).
 "Analyze credit data and financial statements to determine the degree of risk involved in extending 
 credit or lending money."
 
-Aqui a IA NÃO decide sozinha.
-Ela:
+Aqui a IA:
 - interpreta os números (ratios + dados)
 - produz um risco preliminar + justificativa
 - gera perguntas/pontos de atenção para revisão humana

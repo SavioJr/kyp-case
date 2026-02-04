@@ -5,20 +5,16 @@ Geração do relatório final (Markdown).
 📌 O*NET Task 4:
 "Prepare reports that include the degree of risk involved..."
 
-Aqui a IA já retornou o conteúdo textual, mas nós:
-- organizamos a saída em um template legível
-- colocamos indicadores em tabela
-- deixamos claro que é preliminar (human-in-the-loop)
 """
 
 from typing import Dict, Any
 from datetime import datetime
 
-
+# Formatação percentual
 def _pct(x: float) -> str:
     return f"{x * 100:.1f}%"
 
-
+# Formatação monetária brasileira
 def _money(x: float) -> str:
     return f"R$ {x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
 
@@ -45,7 +41,7 @@ def make_markdown_report(payload: Dict[str, Any], ratios: Dict[str, float], llm_
     md.append("")
     md.append("## 3) Sinais Comportamentais")
     md.append(f"- **Histórico de pagamento:** {beh.get('payment_history', 'unknown')}")
-    md.append(f"- **Eventos de inadimplência (12m):** {beh.get('delinquency_events_last_12m', 0)}")
+    md.append(f"- **Eventos de inadimplência {fin['period_months']}m):** {beh.get('delinquency_events_last_12m', 0)}")
     md.append("")
     md.append("## 4) Resumo Financeiro (input)")
     md.append(f"- **Receita (12m):** {_money(fin['revenue'])}")

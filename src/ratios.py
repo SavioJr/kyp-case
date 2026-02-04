@@ -5,9 +5,6 @@ Cálculos determinísticos de indicadores financeiros.
 📌 O*NET Task 3:
 "Generate financial ratios, using computer programs, to evaluate customers' financial status."
 
-Por que isso importa:
-- É a parte 100% auditável e reprodutível do pipeline.
-- Remove trabalho manual repetitivo do analista (carpintaria intelectual).
 """
 
 from typing import Dict
@@ -29,22 +26,22 @@ def compute_ratios(fin: Financials) -> Dict[str, float]:
     - Não é um modelo contábil completo.
     - É um conjunto mínimo para demonstrar automação e interpretação por IA.
     """
-    gross_profit = fin.revenue - fin.cogs
-    ebit = gross_profit - fin.operating_expenses
+    gross_profit = fin.revenue - fin.cogs # Lucro bruto (receita após custos diretos)
+    ebit = gross_profit - fin.operating_expenses # Lucro bruto - despesas operacionais
 
     ratios = {
         # Margens
-        "gross_margin": _safe_div(gross_profit, fin.revenue),
-        "ebit_margin": _safe_div(ebit, fin.revenue),
+        "gross_margin": _safe_div(gross_profit, fin.revenue), # margem após custos diretos
+        "ebit_margin": _safe_div(ebit, fin.revenue), # margem operacional
 
         # Liquidez
-        "current_ratio": _safe_div(fin.assets_current, fin.liabilities_current),
+        "current_ratio": _safe_div(fin.assets_current, fin.liabilities_current), # capacidade de pagar dívidas de curto prazo
 
         # Endividamento / alavancagem
-        "debt_to_assets": _safe_div(fin.liabilities_total, fin.assets_total),
-        "debt_to_equity": _safe_div(fin.liabilities_total, fin.equity),
+        "debt_to_assets": _safe_div(fin.liabilities_total, fin.assets_total), # parcela dos ativos financiada por dívida
+        "debt_to_equity": _safe_div(fin.liabilities_total, fin.equity), # alavancagem em relação ao patrimônio
 
         # Estrutura de custos
-        "opex_ratio": _safe_div(fin.operating_expenses, fin.revenue),
+        "opex_ratio": _safe_div(fin.operating_expenses, fin.revenue), # peso das despesas operacionais na receita
     }
     return ratios

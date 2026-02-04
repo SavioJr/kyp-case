@@ -2,7 +2,6 @@
 schemas.py
 Contrato de dados do projeto (Pydantic).
 
-Por que existe:
 - Define o "shape" esperado do JSON de entrada
 - Garante validação cedo (campos obrigatórios / tipos)
 - Deixa o pipeline mais robusto e fácil de avaliar (erros claros)
@@ -21,7 +20,7 @@ class Company(BaseModel):
 
 class Financials(BaseModel):
     # Período de referência (ex: últimos 12 meses)
-    period_months: int = Field(ge=1, le=24)
+    period_months: int = Field(ge=1, le=12)
 
     # Demonstração simplificada (valores anuais ou últimos 12 meses)
     revenue: float = Field(ge=0)
@@ -34,7 +33,7 @@ class Financials(BaseModel):
     liabilities_current: float = Field(ge=0)
     liabilities_total: float = Field(ge=0)
 
-    # Patrimônio pode ser positivo ou (em casos extremos) próximo de zero
+    # Patrimônio líquido
     equity: float
 
 
