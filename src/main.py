@@ -12,6 +12,7 @@ Fluxo:
 
 import argparse
 from datetime import datetime
+from anyio import Path
 
 from .schemas import InputPayload          # contrato de dados
 from .ratios import compute_ratios         # Task 3
@@ -45,13 +46,15 @@ def run(input_path: str, out_dir: str) -> None:
     # 5) O*NET Task 4: gerar relatório Markdown
     report_md = make_markdown_report(raw, ratios, llm_text)
 
-    # 6) Persistir outputs
+    # 6) Persistir outputs (input + timestamp)
+    input_name = Path(input_path).stem
     ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    write_json(f"{out_dir}/{ts}_context.json", context)
-    write_text(f"{out_dir}/{ts}_report.md", report_md)
 
-    print(f"✅ Gerado: {out_dir}/{ts}_report.md")
-    print(f"✅ Contexto: {out_dir}/{ts}_context.json")
+    write_json(f"{out_dir}/{input_name}__{ts}_context.json", context)
+    write_text(f"{out_dir}/{input_name}__{ts}_report.md", report_md)
+
+    print(f"✅ Gerado: {out_dir}/{input_name}__{ts}_report.md")
+    print(f"✅ Contexto: {out_dir}/{input_name}__{ts}_context.json")
 
 
 def main():
