@@ -1,30 +1,28 @@
 # 🧠 Automação da Carpintaria Intelectual na Análise de Duplicatas Escriturais
 
-Este repositório apresenta um **MVP (Minimum Viable Product)** que automatiza tarefas repetitivas do trabalho de um **analista de crédito**, no contexto de **duplicatas escriturais**.  
-A solução demonstra como **workflows automatizados e IA generativa** podem apoiar decisões humanas, reduzindo esforço manual, padronizando análises e aumentando a escala operacional.
+Este repositório apresenta um **MVP (Minimum Viable Product)** que automatiza tarefas repetitivas do trabalho de um **analista de crédito**, no contexto de **duplicatas escriturais**. 
 
 ---
 
 ## 📌 O que é uma Duplicata Escritural
 
-Uma **duplicata** é um título de crédito que representa um **direito de recebimento futuro**, originado de uma venda a prazo. Ela formaliza a obrigação de pagamento do comprador e pode ser utilizada para controle financeiro, cobrança ou antecipação de crédito.
+Uma **duplicata** é um título de crédito que representa um **direito de recebimento futuro** em uma venda à prazo, formalizando a obrigação de pagamento do comprador por um produto ou serviço.
 
-Com a evolução regulatória e tecnológica, surge a **duplicata escritural**, que substitui o documento físico por um **registro eletrônico padronizado**, mantido em sistemas autorizados. Esse modelo elimina papel, reduz fraudes e aumenta a rastreabilidade das operações.
+Com a evolução regulatória e tecnológica, surge a **duplicata escritural**, que substitui o documento físico por um **registro eletrônico padronizado** intermediado por uma instiuição financeira ou uma registradora. Esse modelo elimina papel, diminuindo burocracia e aumentando a rastrabilidade e transparência das operações.
 
 Na prática, a duplicata escritural:
-- formaliza o recebível de forma digital;
+- formaliza o recebível de forma digital, com registro obrigatório;
 - facilita o controle de pagamentos e inadimplência;
 - aumenta a segurança jurídica das operações;
 - permite maior escala na negociação de recebíveis.
 
-Esse modelo é amplamente discutido no contexto de **controle de pagamentos e gestão de recebíveis**, conforme descrito pela Serasa Experian:  
-https://www.serasaexperian.com.br/conteudos/controle-de-pagamentos-de-clientes/
+Referência: https://www.serasaexperian.com.br/conteudos/controle-de-pagamentos-de-clientes/
 
 ---
 
 ## 🔍 O Problema
 
-A digitalização das duplicatas transforma o recebível em um **ativo financeiro estruturado**, mas também gera um novo desafio operacional: **o aumento massivo no volume de títulos a serem analisados**.
+A digitalização das duplicatas gera um novo desafio operacional: **o aumento massivo no volume de títulos a serem analisados**.
 
 Cada duplicata exige que um analista:
 - valide dados,
@@ -32,10 +30,7 @@ Cada duplicata exige que um analista:
 - interprete risco de crédito,
 - produza documentação padronizada.
 
-Hoje, grande parte desse trabalho ainda é feita **manualmente**, mesmo sendo altamente repetitiva e estruturável.  
-Esse conjunto de tarefas cognitivas operacionais é o que este projeto chama de **“carpintaria intelectual”**.
-
-Com o crescimento do mercado de duplicatas escriturais, manter esse processo manual:
+Como grande parte desse trabalho é repetitivo/estruturável e considerando o crescimento do mercado de duplicatas escriturais, executar esses processos de forma manual:
 - cria gargalos,
 - aumenta risco de erro,
 - limita escala.
@@ -44,7 +39,7 @@ Com o crescimento do mercado de duplicatas escriturais, manter esse processo man
 
 ## 🎯 Objetivo da Solução
 
-O objetivo deste projeto é **automatizar a carpintaria intelectual** — as etapas iniciais, repetitivas e estruturáveis do trabalho do analista de crédito — mantendo o **julgamento humano** apenas onde ele realmente agrega valor.
+O objetivo deste projeto é **automatizar a "carpintaria" intelectual** — as etapas iniciais, repetitivas e estruturáveis do trabalho do analista de crédito — mantendo o **julgamento humano** apenas onde ele realmente agrega valor.
 
 A solução:
 - acelera a análise preliminar;
@@ -72,7 +67,7 @@ Essas tarefas formam um pipeline lógico:
 
 ---
 
-## 🧩 Arquitetura da Solução (MVP)
+## 🧩 Arquitetura da Solução
 
 ### Entrada
 - Arquivo JSON mockado contendo:
