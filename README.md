@@ -183,7 +183,7 @@ O sistema **não substitui o julgamento humano**.
   - feedback contínuo dos analistas;
   - integração com registradoras e fontes externas.
 
-# 🤖 IA Generativa - API
+## 🤖 IA Generativa - API
 
 Neste MVP, a **Groq API** foi utilizada como provider de IA generativa. No entanto, a arquitetura do projeto **não é acoplada a um provider específico**.
 
@@ -193,7 +193,7 @@ Neste MVP, a **Groq API** foi utilizada como provider de IA generativa. No entan
 
 O objetivo do projeto é demonstrar o **workflow de automação**, e não avaliar ou comparar modelos específicos.
 
-# 🧪 Dados Utilizados
+## 🧪 Dados Utilizados
 
 Os dados utilizados neste projeto são **mockados / sintéticos**, criados exclusivamente para demonstrar o funcionamento do workflow.
 
