@@ -56,11 +56,11 @@ https://www.onetonline.org/link/details/13-2041.00
 
 Foram selecionadas tarefas altamente estruturáveis e ideais para automação:
 
-| O*NET Task | Descrição resumida | Implementação no projeto |
-|-----------|--------------------|--------------------------|
-| Task 3 | Generate financial ratios to evaluate customers' financial status | `ratios.py` |
-| Task 1 | Analyze credit data to determine degree of risk | `llm.py` |
-| Task 4 | Prepare reports that include the degree of risk involved | `report.py` |
+| O*NET Task | Importância | Descrição | Implementação no projeto |
+|-----------|------------|-----------|--------------------------|
+| Task 3 | 89 | Generate financial ratios to evaluate customers' financial status | `ratios.py` |
+| Task 1 | 98 | Analyze credit data to determine degree of risk | `llm.py` |
+| Task 4 | 89 | Prepare reports that include the degree of risk involved | `report.py` |
 
 Essas tarefas formam um pipeline lógico:
 **dados → interpretação → comunicação**, refletindo o fluxo real de trabalho do analista.
@@ -116,10 +116,11 @@ src/
 └── utils.py           # Funções utilitárias de I/O
 
 data/
-├── sample_input.json  # Exemplo de entrada
-├── low_risk.json      # Cenário mockado: baixo risco
-├── medium_risk.json   # Cenário mockado: médio risco
-└── high_risk.json     # Cenário mockado: alto risco
+├── sample_input.json   # Exemplo de entrada válida
+├── invalid_input.json  # Exemplo de entrada inválida (validação Pydantic)
+├── low_risk.json       # Cenário mockado: baixo risco
+├── medium_risk.json    # Cenário mockado: médio risco
+└── high_risk.json      # Cenário mockado: alto risco
 
 outputs/               # Relatórios gerados (não versionado)
 
