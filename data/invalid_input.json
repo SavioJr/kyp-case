@@ -1,0 +1,28 @@
+{
+  "company": {
+    "name": "Empresa Bugada LTDA",
+    "cnpj": "00.000.000/0001-00",
+    "sector": "comercio",
+    "region": "SP"
+  },
+  "financials": {
+    "period_months": 0,
+    "revenue": -100000,
+    "cogs": 30000,
+    "operating_expenses": 20000,
+    "assets_current": 50000,
+    "assets_total": 100000,
+    "liabilities_current": 80000,
+    "liabilities_total": 120000,
+    "equity": 20000
+  },
+  "receivable": {
+    "type": "duplicata_fisica",
+    "amount": -5000,
+    "due_days": 400
+  },
+  "behavioral": {
+    "payment_history": "sometimes",
+    "delinquency_events_last_12m": -3
+  }
+}
