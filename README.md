@@ -8,7 +8,7 @@ Este repositório apresenta um **MVP (Minimum Viable Product)** que automatiza t
 
 Clique na imagem abaixo para assistir a uma rápida explicação sobre o projeto:
 
-[![KYP Case Demo](https://img.youtube.com/vi/sXrCXaXUeo8/maxresdefault.jpg)](https://youtu.be/sXrCXaXUeo8)
+[![KYP Case Demo](https://img.youtube.com/vi/_1iDfU89DrU/maxresdefault.jpg)](https://youtu.be/_1iDfU89DrU)
 
 ---
 
