@@ -137,23 +137,12 @@ Recorte padrão de:
 
 ---
 
-## 📥 Input Data — Financials
-
-### O que isso permite avaliar:
-- **rentabilidade**
-- **liquidez de curto prazo** (ativo vs passivo circulante)
-- **endividamento** (dívida vs patrimônio)
-
-➡️ Adequado para risco de duplicata (prazo curto)
-
----
-
 ## 📊 Indicadores Calculados - Python
 
 Os ratios calculados capturam:
 - **geração de lucro**
-- **liquidez**
-- **endividamento**
+- **liquidez** (ativo vs passivo circulante)
+- **endividamento** (dívida vs patrimônio)
 
 ### Exemplos práticos:
 - `current_ratio = assets_current / liabilities_current`  
@@ -183,24 +172,3 @@ Os ratios calculados capturam:
 - Estrutura fixa e auditável
 
 ---
-
-## 📁 Estrutura do Projeto
-
-```text
-src/
-├── __init__.py        # Torna o diretório src um pacote Python
-├── main.py            # Orquestra o workflow completo
-├── schemas.py         # Contratos de dados (validação do input)
-├── ratios.py          # Cálculo determinístico de indicadores financeiros
-├── llm.py             # Interpretação preliminar de risco com IA generativa
-├── report.py          # Geração do relatório final (Markdown)
-└── utils.py           # Funções utilitárias de I/O
-
-data/
-├── sample_input.json   # Exemplo de entrada válida
-├── invalid_input.json  # Exemplo de entrada inválida (validação)
-├── low_risk.json       # Cenário mockado: baixo risco
-├── medium_risk.json    # Cenário mockado: médio risco
-└── high_risk.json      # Cenário mockado: alto risco
-
-outputs/                # Relatórios gerados (não versionado)

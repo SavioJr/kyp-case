@@ -24,34 +24,34 @@ GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")  # default seguro
 
 
 def build_prompt(context: Dict[str, Any]) -> str:
-    """
-    Prompt com formato rígido para:
-    - facilitar leitura humana
-    - facilitar parsing depois (se quiser evoluir)
-    - manter consistência entre casos
-    """
     return f"""
-Você é um assistente de análise de risco de crédito. Você apoia analistas humanos.
+Você é um analista de crédito sênior auxiliando uma equipe humana.
+Seu objetivo é produzir uma ANÁLISE PRELIMINAR de risco, clara e estruturada.
 
-Responda OBRIGATORIAMENTE no formato abaixo (sem texto extra):
+⚠️ IMPORTANTE:
+- Não invente dados.
+- Use APENAS as informações fornecidas.
+- Se algo estiver faltando, indique explicitamente.
+- Seja direto, profissional e organizado.
+- NÃO faça decisão final, apenas triagem.
 
-risk_level: baixo|medio|alto
-resumo_executivo: <1 frase>
-justificativa:
-- ...
-- ...
-pontos_de_atencao:
-- ...
-- ...
-perguntas_para_verificar:
-- ...
-- ...
+Responda OBRIGATORIAMENTE no formato abaixo:
 
-Regras:
-- Não invente dados que não estejam no input.
-- Se faltar informação, diga explicitamente o que falta (em bullets).
-- Faça referência ao prazo e valor do recebível (duplicata) quando relevante.
-- Seja objetivo e consistente.
+RISCO: <BAIXO | MÉDIO | ALTO>
+
+RESUMO EXECUTIVO:
+<2–3 frases objetivas resumindo o perfil de risco>
+
+FUNDAMENTOS DO RISCO:
+- <ligar indicadores financeiros a risco>
+- <ligar liquidez ao prazo do recebível>
+- <ligar endividamento à sustentabilidade>
+
+PONTOS DE ATENÇÃO:
+- <itens que NÃO impedem a operação, mas exigem cuidado>
+
+PERGUNTAS PARA VALIDAÇÃO HUMANA:
+- <questões que um analista deveria verificar antes da decisão>
 
 DADOS (JSON):
 {context}
@@ -71,8 +71,8 @@ def call_llm(context: Dict[str, Any]) -> str:
             {"role": "system", "content": "Responda em português do Brasil, tom profissional e direto."},
             {"role": "user", "content": prompt},
         ],
-        temperature=0.2,
-        max_tokens=600,
+        temperature=0.2, # respostas mais focadas e consistentes
+        max_tokens=600, # controle de custo
     )
 
     return resp.choices[0].message.content.strip()

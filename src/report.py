@@ -53,7 +53,7 @@ def make_markdown_report(payload: Dict[str, Any], ratios: Dict[str, float], llm_
     md.append(f"- **Passivo total:** {_money(fin['liabilities_total'])}")
     md.append(f"- **Patrimônio líquido:** {_money(fin['equity'])}")
     md.append("")
-    md.append("## 5) Indicadores Financeiros (calculados) — *O*NET Task 3*")
+    md.append("## 5) Indicadores Financeiros (calculados)")
     md.append("| Indicador | Valor | Interpretação rápida |")
     md.append("|---|---:|---|")
     md.append(f"| Margem Bruta | {_pct(ratios['gross_margin'])} | quanto sobra após custos diretos |")
@@ -63,15 +63,9 @@ def make_markdown_report(payload: Dict[str, Any], ratios: Dict[str, float], llm_
     md.append(f"| Dívida / Patrimônio | {ratios['debt_to_equity']:.2f} | alavancagem (cuidado se muito alto) |")
     md.append(f"| Opex / Receita | {_pct(ratios['opex_ratio'])} | peso das despesas operacionais |")
     md.append("")
-    md.append("## 6) Interpretação por IA Generativa — *O*NET Task 1*")
+    md.append("## 6) Interpretação por IA Generativa")
     md.append("> **Nota:** A IA fornece um **risco preliminar** e recomendações. A decisão final é humana.")
     md.append("")
     md.append(llm_text.strip())
-    md.append("")
-    md.append("## 7) Observação Final — *O*NET Task 4*")
-    md.append(
-        "Este relatório é **preliminar** e tem como objetivo reduzir trabalho manual repetitivo "
-        "na triagem e documentação inicial. A decisão final deve ser validada por um analista."
-    )
     md.append("")
     return "\n".join(md)
