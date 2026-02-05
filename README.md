@@ -4,6 +4,14 @@ Este repositório apresenta um **MVP (Minimum Viable Product)** que automatiza t
 
 ---
 
+## 🎥 Demonstração em Vídeo (5 minutos)
+
+Clique na imagem abaixo para assistir a uma rápida explicação sobre o projeto:
+
+[![KYP Case Demo](https://img.youtube.com/vi/sXrCXaXUeo8/maxresdefault.jpg)](https://youtu.be/sXrCXaXUeo8)
+
+---
+
 ## 📌 O que é uma Duplicata Escritural
 
 Uma **duplicata** é um título de crédito que representa um **direito de recebimento futuro** em uma venda à prazo, formalizando a obrigação de pagamento do comprador por um produto ou serviço.
